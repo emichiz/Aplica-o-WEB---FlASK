@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>  Confirmação e-mail</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+
+</head>
+<body>
+    <div class="page">
+        <form>
+        {% if error %}
+            <!-- Adicionando o ID 'error-message' -->
+            <p id="error-message" class="error-message custom-error">{{ error }}</p>
+        {% endif %}
+
+
+        <div class="formLogin" style="text-align: center;">
+
+        <i class="fas fa-envelope-square fa-5x"></i>
+
+        <h1 style="font-size: 24px;">Confirmação De Envio</h1>
+        <p class="form-label">Realizado o envio para a sua caixa de entrada <br> com as orientações de redefinição de senha.</p>
+            <a href="{{ url_for('login') }}" class="submit-btn">Voltar para o login </a>
+
+        </form>
+    </div>
+</body>
+</html>

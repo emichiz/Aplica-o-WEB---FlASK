@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main3.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+
+
+
+
+</head>
+<body>
+
+<div class="page">
+    </div>
+<!-- iNICIO DO MENU -->
+<header class="top-bar">
+    <div class="user-info">
+        <span id="perfil">Perfil: {{ perfil }}</span>
+        <span id="pa">PA: {{ pa }}</span>
+        <span id="cooperativa">Cooperativa: {{ cooperativa }}</span>
+    </div>
+    <div class="logout-button">
+        <a href="/logout">Sair</a>
+    </div>
+</header>
+
+<aside class="sidebar">
+  <div id="leftside-navigation" class="nano">
+    <ul class="nano-content">
+      <li>
+        <a href="index"><i class="fa-solid fa-house"></i><span>Página Inicial</span></a>
+      </li>
+      <li class="sub-menu ">
+        <a href="javascript:void(0);"><i class="fa-regular fa-percent"></i><span>Ferramenta de Precificação</span><i class="arrow fa fa-angle-right pull-right"></i></a>
+        <ul>
+
+          <li><a href="Simular">Simular</a>
+          </li>
+            {% if perfil == "master" %}
+          <li><a href="Spread">Spread</a>
+          </li>
+          <li><a href="Condições_Comerciais">Condições Comerciais</a>
+          </li>
+            {% endif %}
+        </ul>
+      </li>
+
+
+
+        <li class="sub-menu">
+                <a href="javascript:void(0);">
+                    <i class="fa-solid fa-arrow-right-arrow-left"></i>
+                    <span>Taxa Pré para DI</span>
+                    <i class="arrow fa fa-angle-right pull-right"></i>
+                </a>
+                <ul>
+                    <li><a href="conversor.html">Conversor</a></li>
+                </ul>
+            </li>
+
+
+      <li class="sub-menu">
+        <a href="javascript:void(0);"><i class="fa-solid fa-hand-holding-dollar"></i><span>Simulador Consignado</span><i class="arrow fa fa-angle-right pull-right"></i></a>
+        <ul>
+          <li><a href="simulador_consignado.html">Simulador Consignado</a>
+          </li>
+        </ul>
+      </li>
+
+        {% if perfil == "master" %}
+    <li class="sub-menu">
+        <a href="javascript:void(0);"><i class="fa-solid fa-users-gear"></i><span>Controle de Usuario</span><i class="arrow fa fa-angle-right pull-right"></i></a>
+        <ul>
+            <li><a href="adicionar_usuario.html">Adicionar Usuario</a></li>
+            <li><a href="remover_usuario.html">Remover Usuario</a></li>
+        </ul>
+    </li>
+{% endif %}
+
+
+      <li class="sub-menu">
+        <a href="javascript:void(0);"><i class="fa-solid fa-gear"></i><span>Configurações</span><i class="arrow fa fa-angle-right pull-right"></i></a>
+        <ul>
+          <li><a href="configuraçoes.html">Meu Usuario</a>
+          </li>
+
+        </ul>
+      </li>
+
+
+
+    </ul>
+  </div>
+</aside>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="{{ url_for('static', filename='main.js') }}"></script>
+
+ <!-- FIM DO MENU -->
+</body>
+
+
+
+</html>
