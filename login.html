@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+</head>
+<body>
+    <div class="page">
+        {% if error %}
+            <!-- Adicionando o ID 'error-message' -->
+            <p id="error-message" class="error-message custom-error">{{ error }}</p>
+        {% endif %}
+
+
+        <div class="formLogin" style="text-align: center;">
+            {% if current_user.is_authenticated %}
+                <!-- Se o usuário estiver autenticado, mostrar o botão de logout -->
+                <a href="{{ url_for('logout') }}" class="btn-logout">Voltar </a>
+            {% else %}
+                <!-- Se não estiver autenticado, mostrar o formulário de login -->
+                <form method="POST">
+                    <label for="email" class="form-label">E-mail:</label><br>
+                    <input type="text" id="email" name="email" class="input-field"><br><br>
+                    <label for="senha" class="form-label">Senha:</label><br>
+                    <input type="password" id="senha" name="senha" class="input-field"><br><br>
+                    <input type="submit" value="Entrar" class="submit-btn" > <!-- Alterando o valor do botão para "Entrar" -->
+
+
+                </form>
+                  <p style="margin-bottom: 10px;"></p>
+                 <a href="{{ url_for('recuperar_senha') }}" class=".btn-logout">Esqueceu a senha?</a>
+            {% endif %}
+        </div>
+
+    </div>
+     <script>
+        // Remove a mensagem de erro após 3 segundos (3000 milissegundos)
+        setTimeout(function() {
+            var errorMessage = document.getElementById('error-message');
+            if (errorMessage) {
+                errorMessage.style.display = 'none';
+            }
+        }, 3000); // Tempo em milissegundos
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> style="font-size: 12px;" > E-mail não encontrado</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+</head>
+<body>
+    <div class="page">
+        {% if error %}
+            <!-- Adicionando o ID 'error-message' -->
+            <p id="error-message" class="error-message custom-error">{{ error }}</p>
+        {% endif %}
+        <div class="formLogin">
+            <h1 style="font-size: 24px;">Redefnir Senha</h1>
+             <p style="margin-bottom: 10px;"></p>
+            <form method="POST" action="{{ url_for('redefinir_senha', token=token) }}">
+                <label for="nova_senha" class="form-label">Nova Senha:</label><br>
+                <input type="password" id="nova_senha" class="input-field" name="nova_senha" required><br><br>
+                <input type="submit" value="Redefinir Senha" class="submit-btn">
+            </form>
+
+        </div>
+</body>
+</html>

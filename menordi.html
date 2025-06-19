@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Menor DI</title>
+</head>
+<body>
+
+
+   <form method="post" action="{{ url_for('menordi') }}">
+    <select name="prazo">
+        <option value="De 7 à 12 meses">De 7 à 12 meses</option>
+
+        <option value="De 121 à 144 meses">De 121 à 144 meses</option>
+    </select>
+    <input type="submit" value="Consultar">
+</form>
+
+{% if menor_di %}
+    <p>O menor DI é: {{ menor_di }}</p>
+{% endif %}
+</body>
+</html>
